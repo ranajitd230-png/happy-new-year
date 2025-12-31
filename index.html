@@ -1,0 +1,310 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <title>HAPPY NEW YEAR 2026 💖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* 🎨 GLOBAL STYLES */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0f0c29; /* Dark premium background */
+            background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        /* ✨ LOADING SCREEN (Stunning) */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 1s ease;
+        }
+
+        .loader-content {
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        /* 📱 MAIN CONTAINER */
+        #main-content {
+            display: none;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
+
+        /* 🃏 MAGIC CARD */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 40px 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 5;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #fff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px;
+            border-radius: 12px;
+            min-width: 60px;
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .time-box small { font-size: 0.7rem; color: #ddd; }
+
+        input#userName {
+            width: 80%;
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            margin: 20px 0;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .wish-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 15px 0;
+            min-height: 60px;
+        }
+
+        .magic-btn {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(255, 65, 108, 0.4);
+            transition: 0.3s;
+        }
+
+        .magic-btn:hover { transform: translateY(-3px) scale(1.05); }
+
+        /* 🌸 PETALS ANIMATION */
+        .petal {
+            position: fixed;
+            top: -10%;
+            pointer-events: none;
+            z-index: 1;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(540deg);
+                opacity: 0;
+            }
+        }
+
+        .music-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <div class="loader-content">
+            <h2 style="color: gold; font-size: 2rem;">২০২৬</h2>
+            <p>সময়ের পাতায় নতুন এক গল্পের শুরু হতে যাচ্ছে....🕊️</p>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+    <div class="music-toggle" onclick="toggleMusic()">🎵</div>
+
+    <div id="main-content">
+        <div class="glass-card">
+            <h1>HAPPY NEW YEAR</h1>
+            <p style="color: #ffd700; letter-spacing: 2px;">2026</p>
+
+            <div class="countdown-container" id="timer">
+                </div>
+
+            <input type="text" id="userName" placeholder="তোমার সুন্দর নামটি লিখো....">
+            
+            <div class="wish-text" id="message">
+               ২০২৬ সাল হোক আপনার জীবনের সেরা বছর। হাসি আর খুশিতে ভরে উঠুক প্রতিটি মুহূর্ত! ✨❣️
+            </div>
+
+            <button class="magic-btn" onclick="startMagic()">ম্যাজিক দেখো ✨</button>
+        </div>
+
+        <div class="footer">
+            তৈরি করেছে তোমার বন্ধু <b>Ranajit</b>
+        </div>
+    </div>
+
+    <script>
+        // 🚀 Initialization
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                const main = document.getElementById('main-content');
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    main.style.display = 'flex';
+                    setTimeout(() => main.style.opacity = '1', 100);
+                }, 1000);
+            }, 3000);
+        });
+
+        // ⏰ Countdown Logic
+        function countdown() {
+            const now = new Date().getTime();
+            const target = new Date("Jan 1, 2026 00:00:00").getTime();
+            const diff = target - now;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('timer').innerHTML = `
+                <div class="time-box"><span>${d}</span><small>দিন</small></div>
+                <div class="time-box"><span>${h}</span><small>ঘণ্টা</small></div>
+                <div class="time-box"><span>${m}</span><small>মিনিট</small></div>
+                <div class="time-box"><span>${s}</span><small>সেকেন্ড</small></div>
+            `;
+        }
+        setInterval(countdown, 1000);
+
+        // 🌸 Falling Elements
+        function createPetal() {
+            const symbols = ['🌸', '✨', '💖', '❄️', '⭐'];
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.fontSize = Math.random() * 20 + 10 + 'px';
+            petal.style.animationDuration = Math.random() * 3 + 4 + 's';
+            document.body.appendChild(petal);
+            setTimeout(() => petal.remove(), 6000);
+        }
+        setInterval(createPetal, 300);
+
+        // ✨ The Magic
+        function startMagic() {
+            const name = document.getElementById('userName').value.trim();
+            const msgBox = document.getElementById('message');
+            
+            if (!name) {
+                alert("আরে! তোমার নামটা তো বললে না 😊");
+                return;
+            }
+
+            const fullText = `প্রিয় ${name},তুমি যেমন সহজ-সরল, নিষ্পাপ মন আর কিউট হাসি নিয়ে আছো,
+২০২৬ সালেও ঠিক তেমনই থেকো।
+জীবনের কোনো ঝড় যেন তোমার এই সুন্দর মনটাকে ছুঁতে না পারে।
+নতুন বছরটা যেন তোমার জন্য নিয়ে আসে অফুরন্ত হাসি,
+শান্তি আর সব ছোট-বড় স্বপ্নপূরণের আনন্দ।
+সবসময় নিজের মতো করে থেকো--
+কারণ তুমি আমার কাছে সত্যিই ভীষণ স্পেশাল 💝✨ `;
+            
+            msgBox.innerHTML = "";
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < fullText.length) {
+                    msgBox.innerHTML += fullText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 40);
+                }
+            }
+            
+            typeWriter();
+            
+            // Extra Burst
+            for(let k=0; k<50; k++) {
+                setTimeout(createPetal, k * 50);
+            }
+        }
+
+        // 🎵 Music Toggle
+        function toggleMusic() {
+            const music = document.getElementById('bgMusic');
+            if (music.paused) {
+                music.play().catch(() => alert("Music প্লে করতে স্ক্রিনে একবার টাচ করো!"));
+            } else {
+                music.pause();
+            }
+        }
+    </script>
+</body>
+</html>
